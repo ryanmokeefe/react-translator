@@ -4,7 +4,7 @@ class SearchContainer extends Component {
   render() {
     let langOptions = this.props.langOptions.map((language, index) => {
       return(
-        <option key={index + 1} value={language.name}>{language.name}</option>
+        <option key={index + 1} value={language.short}>{language.name}</option>
       )
     })
     langOptions.unshift(

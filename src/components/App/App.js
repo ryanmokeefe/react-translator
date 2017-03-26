@@ -8,30 +8,25 @@ class App extends Component {
     super()
     this.state = {
       searchPhrase: null,
-      langOptions: [],
+      langOptions: [
+        { short: "en", name: "English" },
+        { short: "es", name: "Spanish" },
+        { short: "de", name: "German" },
+        { short: "fr", name: "French" },
+        { short: "it", name: "Italian" },
+        { short: "ja", name: "Japanese" },
+        { short: "pt", name: "Portugeuse" },
+      ],
       sourceLang: null,
       targetLang: null,
       translation: null
     }
-    this.getLangOptions()
   }
 
   handleSearchInput(e) {
     this.setState({
       searchPhrase: e.target.value
     })
-  }
-
-  getLangOptions(e) {
-    axios.get('https://watson-api-explorer.mybluemix.net/language-translator/api/v2/identifiable_languages')
-      .then((response) => {
-        this.setState({
-          langOptions: response.data.languages
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
   }
 
   setSourceLang(e) {
@@ -57,8 +52,6 @@ class App extends Component {
     }).then((response) => {
       this.setState({
         translation: response.data
-      }, () => {
-        console.log(this.state.translation)
       })
     })
   }
