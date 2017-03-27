@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import SearchContainer from '../SearchContainer/SearchContainer.js'
-
+import './App.css'
 
 class App extends Component {
   constructor() {
@@ -59,15 +59,19 @@ class App extends Component {
   render() {
     return(
       <div>
-        <h1>React Translator</h1>
-        <SearchContainer
-          onSearchInput={(e) => this.handleSearchInput(e)}
-          langOptions={this.state.langOptions}
-          setSourceLang={(e) => this.setSourceLang(e)}
-          setTargetLang={(e) => this.setTargetLang(e)}
-          onSearchSubmit={(e) => this.handleSearchSubmit(e)}
-          translation={this.state.translation}
-        />
+        <nav>
+          <h1>React Translator</h1>
+        </nav>
+        <main>
+          <SearchContainer
+            onSearchInput={(e) => this.handleSearchInput(e)}
+            langOptions={this.state.langOptions}
+            setSourceLang={(e) => this.setSourceLang(e)}
+            setTargetLang={(e) => this.setTargetLang(e)}
+            onSearchSubmit={(e) => this.handleSearchSubmit(e)}
+            translation={this.state.translation}
+          />
+        </main>
       </div>
     )
   }
