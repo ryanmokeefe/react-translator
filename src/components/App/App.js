@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import SearchContainer from '../SearchContainer/SearchContainer.js'
+import Search from '../Search/Search.js'
 import './App.css'
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
       }
     }).then((response) => {
       this.setState({
-        translation: response.data
+        translation: response.data.translations[0].translation
       })
     })
   }
@@ -63,7 +63,7 @@ class App extends Component {
           <h1>React Translator</h1>
         </nav>
         <main>
-          <SearchContainer
+          <Search
             onSearchInput={(e) => this.handleSearchInput(e)}
             langOptions={this.state.langOptions}
             setSourceLang={(e) => this.setSourceLang(e)}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './SearchContainer.css'
+import './Search.css'
 
-class SearchContainer extends Component {
+class Search extends Component {
   render() {
     let langOptions = this.props.langOptions.map((language, index) => {
       return(
@@ -40,4 +40,4 @@ class SearchContainer extends Component {
 }
 
 
-export default SearchContainer
+export default Search
