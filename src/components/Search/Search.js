@@ -17,8 +17,7 @@ class Search extends Component {
         { short: "pt", name: "Portugeuse" },
       ],
       sourceLang: null,
-      targetLang: null,
-      translation: null
+      targetLang: null
     }
   }
 
@@ -50,9 +49,7 @@ class Search extends Component {
       }
     })
     .then((response) => {
-      this.setState({
-        translation: response.data.translations[0].translation
-      })
+      this.props.setTranslation(response.data.translations[0].translation)
     })
     .catch((err) => {
       console.log(err)
@@ -90,7 +87,7 @@ class Search extends Component {
           </p>
           <input type="submit" value="Translate"/>
         </form>
-        <h2>{this.state.translation}</h2>
+        <h2>{this.props.translation}</h2>
       </div>
     )
   }

@@ -3,6 +3,20 @@ import Search from '../Search/Search.js'
 import './App.css'
 
 class App extends Component {
+
+  constructor () {
+    super()
+    this.state = {
+      translation: null
+    }
+  }
+
+  setTranslation (data) {
+    this.setState({
+      translation: data
+    })
+  }
+
   render() {
     return(
       <div>
@@ -10,7 +24,10 @@ class App extends Component {
           <h1>React Translator</h1>
         </nav>
         <main>
-          <Search />
+          <Search
+            translation={ this.state.translation }
+            setTranslation={ (data) => this.setTranslation(data) }
+          />
         </main>
       </div>
     )
