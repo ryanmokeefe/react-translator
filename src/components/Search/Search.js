@@ -3,8 +3,8 @@ import axios from 'axios'
 import './Search.css'
 
 class Search extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       searchPhrase: null,
       langOptions: [
